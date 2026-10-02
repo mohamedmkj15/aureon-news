@@ -1,0 +1,62 @@
+[
+    {
+        "id": "world-01",
+        "name": "SOURCE_ONE",
+        "category": "World",
+        "rss": "https://example.com/rss"
+    },
+    {
+        "id": "world-02",
+        "name": "SOURCE_TWO",
+        "category": "World",
+        "rss": "https://example.com/rss"
+    },
+    {
+        "id": "world-03",
+        "name": "SOURCE_THREE",
+        "category": "World",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "tech-01",
+        "name": "SOURCE_ONE",
+        "category": "Technology",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "tech-02",
+        "name": "SOURCE_TWO",
+        "category": "Technology",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "tech-03",
+        "name": "SOURCE_THREE",
+        "category": "Technology",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "business-01",
+        "name": "SOURCE_ONE",
+        "category": "Business",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "business-02",
+        "name": "SOURCE_TWO",
+        "category": "Business",
+        "rss": "https://example.com/rss"
+    },
+
+    {
+        "id": "business-03",
+        "name": "SOURCE_THREE",
+        "category": "Business",
+        "rss": "https://example.com/rss"
+    }
+]
