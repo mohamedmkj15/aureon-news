@@ -62,3 +62,10 @@ jobs:
           git commit -m "chore: update news"
 
           git push
+- name: AI Editor
+  env:
+    AI_API_URL: ${{ secrets.AI_API_URL }}
+    AI_API_KEY: ${{ secrets.AI_API_KEY }}
+    AI_MODEL: ${{ secrets.AI_MODEL }}
+  run: |
+    python scripts/ai_editor.py
