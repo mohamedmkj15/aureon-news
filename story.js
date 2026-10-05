@@ -122,4 +122,13 @@ function safeURL(value) {
 }
 
 
-loadStory();
+loadStory("sources": [
+    {
+        "name": "Source A",
+        "url": "https://example.com"
+    },
+    {
+        "name": "Source B",
+        "url": "https://example.com"
+    }
+]);
