@@ -270,6 +270,12 @@ def main():
 
         result = call_ai(
             prompt
+          When multiple timestamps are available,
+build a chronological timeline.
+
+Do not invent timeline events.
+
+Only use events supported by the provided sources.
         )
 
         if not result:
