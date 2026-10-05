@@ -183,3 +183,22 @@ if (searchInput) {
         }
     );
 }
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "Unknown time";
+    }
+
+    const date = <span>
+    ${formatDate(article.published_at)}
+</span>
+        new Date(dateString);
+
+    return new Intl.DateTimeFormat(
+        "en",
+        {
+            dateStyle: "medium",
+            timeStyle: "short"
+        }
+    ).format(date);
+}
