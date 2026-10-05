@@ -1,0 +1,12 @@
+[
+    {
+        "source": "apple",
+        "relationship": "led_by",
+        "target": "tim-cook"
+    },
+    {
+        "source": "apple",
+        "relationship": "develops",
+        "target": "ai"
+    }
+]
