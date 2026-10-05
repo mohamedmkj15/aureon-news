@@ -1,0 +1,12 @@
+[
+    {
+        "id": "apple",
+        "name": "Apple",
+        "type": "company",
+        "related": [
+            "tim-cook",
+            "ai",
+            "iphone"
+        ]
+    }
+]
