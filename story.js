@@ -134,3 +134,9 @@ loadStory("sources": [
 ]);
 "confidence": 92
 "status": "confirmed"
+"entities": [
+    {
+        "name": "Apple",
+        "type": "company"
+    }
+]
