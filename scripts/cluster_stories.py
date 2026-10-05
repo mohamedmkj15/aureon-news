@@ -148,3 +148,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+if candidate.get("category") != article.get("category"):
+    continue
+    from datetime import datetime, timezone
+    def parse_date(value):
+
+    try:
+        return datetime.fromisoformat(
+            value.replace("Z", "+00:00")
+        )
+
+    except Exception:
+        return datetime.now(timezone.utc)
+        import hashlib
+        def create_story_id(article):
+
+    base = (
+        article.get("category", "")
+        + "|"
+        + article.get("title", "")
+    ).lower()
+
+    return (
+        "story_"
+        + hashlib.sha256(
+            base.encode("utf-8")
+        ).hexdigest()[:12]
+    )
