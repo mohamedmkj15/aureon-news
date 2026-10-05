@@ -140,3 +140,46 @@ function safeURL(value) {
 
 
 loadNews();
+const searchInput =
+    document.getElementById(
+        "search-input"
+    );
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        async function () {
+
+            const query =
+                this.value
+                    .toLowerCase()
+                    .trim();
+
+            const response =
+                await fetch(
+                    "data/news.json"
+                );
+
+            const articles =
+                await response.json();
+
+            const results =
+                articles.filter(article => {
+
+                    const text =
+                        `
+                        ${article.title}
+                        ${article.summary}
+                        ${article.category}
+                        ${article.source}
+                        `
+                        .toLowerCase();
+
+                    return text.includes(query);
+                });
+
+            renderNews(results);
+        }
+    );
+}
