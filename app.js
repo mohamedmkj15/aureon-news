@@ -1,65 +1,90 @@
 async function loadNews() {
+    const container = document.getElementById("news-container");
+
     try {
         const response = await fetch("data/news.json");
 
         if (!response.ok) {
-            throw new Error("Unable to load news data.");
+            throw new Error("Failed to load news.");
         }
 
-        const news = await response.json();
+        const articles = await response.json();
 
-        renderNews(news);
+        renderNews(articles);
 
     } catch (error) {
-        console.error("Aureon error:", error);
+
+        console.error("Aureon:", error);
+
+        container.innerHTML = `
+            <div class="error-message">
+                Unable to load Aureon intelligence.
+            </div>
+        `;
     }
 }
 
 
-function renderNews(news) {
+function renderNews(articles) {
 
-    const container = document.getElementById("news-container");
-
-    if (!container) {
-        return;
-    }
+    const container =
+        document.getElementById("news-container");
 
     container.innerHTML = "";
 
-    news
-        .slice(0, 12)
-        .forEach(article => {
+    const visibleArticles =
+        articles
+            .filter(article => article.title)
+            .slice(0, 12);
 
-            const card = document.createElement("article");
+    visibleArticles.forEach(article => {
 
-            card.className = "news-card";
+        const card =
+            document.createElement("article");
 
-            card.innerHTML = `
-                <div class="news-meta">
-                    <span>${escapeHTML(article.category)}</span>
-                    <span>${escapeHTML(article.source)}</span>
-                </div>
+        card.className = "news-card";
 
-                <h3>
-                    ${escapeHTML(article.title)}
-                </h3>
+        card.innerHTML = `
 
-                <p>
-                    ${escapeHTML(article.summary)}
-                </p>
+            <div class="news-meta">
 
-                <a
-                    href="${safeURL(article.url)}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="read-more"
-                >
-                    Read source →
-                </a>
-            `;
+                <span>
+                    ${escapeHTML(
+                        article.category || "WORLD"
+                    )}
+                </span>
 
-            container.appendChild(card);
-        });
+                <span>
+                    ${escapeHTML(
+                        article.source || "AUREON"
+                    )}
+                </span>
+
+            </div>
+
+            <h3>
+                ${escapeHTML(article.title)}
+            </h3>
+
+            <p>
+                ${escapeHTML(
+                    article.summary || ""
+                )}
+            </p>
+
+            <a
+                href="${safeURL(article.url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="read-more"
+            >
+                Read source →
+            </a>
+
+        `;
+
+        container.appendChild(card);
+    });
 }
 
 
@@ -81,13 +106,13 @@ function safeURL(value) {
         const url = new URL(value);
 
         if (
-            url.protocol === "http:" ||
-            url.protocol === "https:"
+            url.protocol === "https:" ||
+            url.protocol === "http:"
         ) {
             return url.href;
         }
 
-    } catch (_) {}
+    } catch (error) {}
 
     return "#";
 }
