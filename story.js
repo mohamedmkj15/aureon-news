@@ -132,3 +132,5 @@ loadStory("sources": [
         "url": "https://example.com"
     }
 ]);
+"confidence": 92
+"status": "confirmed"
