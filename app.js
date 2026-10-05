@@ -32,10 +32,31 @@ function renderNews(articles) {
 
     container.innerHTML = "";
 
-    const visibleArticles =
-        articles
-            .filter(article => article.title)
-            .slice(0, 12);
+    const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const selectedCategory =
+    params.get("category");
+
+let visibleArticles =
+    articles.filter(
+        article => article.title
+    );
+
+if (selectedCategory) {
+
+    visibleArticles =
+        visibleArticles.filter(
+            article =>
+                article.category ===
+                selectedCategory
+        );
+}
+
+visibleArticles =
+    visibleArticles.slice(0, 12);
 
     visibleArticles.forEach(article => {
 
